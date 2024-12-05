@@ -1,4 +1,5 @@
-// import css from "./SearchBar.module.css";
+import css from "./SearchBar.module.css";
+import { IoSearch } from "react-icons/io5";
 
 const SearchBar = ({ onSubmit }) => {
   const handleSubmit = (e) => {
@@ -14,7 +15,7 @@ const SearchBar = ({ onSubmit }) => {
     form.reset();
   };
   return (
-    <header>
+    <header className={css.header}>
       <form onSubmit={handleSubmit}>
         <input
           name="search"
@@ -23,7 +24,9 @@ const SearchBar = ({ onSubmit }) => {
           autoFocus
           placeholder="Search images and photos"
         />
-        <button type="submit">Search</button>
+        <button type="submit">
+          <IoSearch />
+        </button>
       </form>
     </header>
   );
