@@ -13,7 +13,7 @@ const SearchBar = ({ onSubmit }) => {
     e.preventDefault();
     const form = e.target;
     let searchQuery = form.elements.search.value.trim().toLowerCase();
-    if (searchQuery === "") {
+    if (searchQuery.length < 2) {
       notify();
       return;
     }

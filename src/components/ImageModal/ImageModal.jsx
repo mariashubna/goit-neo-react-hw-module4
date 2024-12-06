@@ -15,6 +15,10 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
     background: "transparent",
     border: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexDirection: "column",
   },
 };
 
