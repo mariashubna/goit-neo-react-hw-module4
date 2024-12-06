@@ -1,22 +1,31 @@
+import toast, { Toaster } from "react-hot-toast";
 import css from "./SearchBar.module.css";
 import { IoSearch } from "react-icons/io5";
 
 const SearchBar = ({ onSubmit }) => {
+  const notify = () =>
+    toast.error("Please enter search term!", {
+      duration: 3000,
+      position: "top-right",
+    });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     let searchQuery = form.elements.search.value.trim().toLowerCase();
     if (searchQuery === "") {
-      alert("Please enter search term!");
+      notify();
       return;
     }
-    console.log(searchQuery);
     onSubmit(searchQuery);
     form.reset();
   };
   return (
     <header className={css.header}>
-      <form onSubmit={handleSubmit}>
+      <form className={css.form} onSubmit={handleSubmit}>
+        <button className={css.btn} type="submit">
+          <IoSearch />
+        </button>
         <input
           name="search"
           type="text"
@@ -24,10 +33,8 @@ const SearchBar = ({ onSubmit }) => {
           autoFocus
           placeholder="Search images and photos"
         />
-        <button type="submit">
-          <IoSearch />
-        </button>
       </form>
+      <Toaster position="top-center" reverseOrder={false} />
     </header>
   );
 };

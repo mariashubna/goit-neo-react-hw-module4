@@ -10,9 +10,8 @@ export const searchPhotos = async (query, page) => {
     params: {
       query,
       page,
-      per_page: 10,
+      per_page: 24,
     },
   });
-  console.log(data);
   return data;
 };
